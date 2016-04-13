@@ -9,7 +9,7 @@ def open_and_read_file(file_path):
     """
 
     f = open(file_path)
-    text = f.read().split()
+    text = f.read()
     f.close() 
     return text
 
@@ -29,9 +29,21 @@ def make_chains(text_string):
 
     chains = {}
 
-    # your code goes here
+    text = text_string.split()
 
-    return chains
+
+    for i in range(len(text) -2):
+        # if i + 1 < range(len(text) -1):
+       
+       #assign bi-gram tuples as dictionary keys
+        chains[(text[i], text [i + 1])] = [] #<-- set value to list of  all words to right of tuple
+    # Anything to the right of the existing keys inside the text will be set as an item in the value list
+
+
+        # chains.get((text[i], text[i + 1]), 0)
+        # else:
+        #     return chains
+    print chains
 
 
 def make_text(chains):
