@@ -34,17 +34,15 @@ def make_chains(text_string):
 
     for i in range(len(text) -2):
         # if i + 1 < range(len(text) -1):
-       
+        my_tuple = (text[i], text [i + 1])
+        value = text [i+2]
        #assign bi-gram tuples as dictionary keys
-        chains[(text[i], text [i + 1])] = [] #<-- set value to list of  all words to right of tuple
-    # Anything to the right of the existing keys inside the text will be set as an item in the value list
+        if chains.get(my_tuple) == None:
+            chains[my_tuple] = []
 
-
-        # chains.get((text[i], text[i + 1]), 0)
-        # else:
-        #     return chains
-    print chains
-
+    # Set value to list of  all words to right of tuple
+        chains[my_tuple].append(value)        
+                
 
 def make_text(chains):
     """Takes dictionary of markov chains; returns random text."""
