@@ -48,20 +48,20 @@ def make_chains(text_string):
 def make_text(chains):
     """Takes dictionary of markov chains; returns random text."""
 
-    text = ""
-    current_key = choice(chains.keys())
     # Selects random key from chains dict
+    current_key = choice(chains.keys())
+    text = [current_key[0],current_key[1]]
 
-    while chains.get(current_key) != None:
-        # while the current key from chains is not none (still exists):
-        
+    # while the current key from chains is not none (still exists):
+
+    while current_key in chains:        
         chosen_word = choice(chains[current_key])
         current_key = (current_key[1], chosen_word)
-        # if text == None:
-        text = " {}".format(chosen_word)
-        # if text is none, don't print
-        # do print initial current_key value
-        print text,
+        text.append(chosen_word)
+            # if text is none, don't print <-- Not necessary when you return instead of printing final thing
+            # do print initial current_key value
+    return " ".join(text) 
+
 
 
 input_path = "green-eggs.txt"
