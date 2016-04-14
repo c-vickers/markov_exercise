@@ -50,15 +50,18 @@ def make_text(chains):
 
     text = ""
     current_key = choice(chains.keys())
+    # Selects random key from chains dict
 
     while chains.get(current_key) != None:
+        # while the current key from chains is not none (still exists):
+        
         chosen_word = choice(chains[current_key])
-        print chosen_word
-        new_key = current_key[1] + chosen_word
-        current_key = new_key
-        print new_key
-    
-    return text
+        current_key = (current_key[1], chosen_word)
+        # if text == None:
+        text = " {}".format(chosen_word)
+        # if text is none, don't print
+        # do print initial current_key value
+        print text,
 
 
 input_path = "green-eggs.txt"
