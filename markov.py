@@ -42,15 +42,20 @@ def make_chains(text_string):
 
     # Set value to list of  all words to right of tuple
         chains[my_tuple].append(value)        
-                
+    
+    return chains
 
 def make_text(chains):
     """Takes dictionary of markov chains; returns random text."""
 
     text = ""
+    current_key = choice(chains.keys())
 
-    # your code goes here
-
+    while chains.get(current_key) != None:
+        chosen_word = choice(chains[current_key])
+        print chosen_word
+    new_key = None
+    
     return text
 
 
