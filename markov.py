@@ -54,7 +54,9 @@ def make_text(chains):
     while chains.get(current_key) != None:
         chosen_word = choice(chains[current_key])
         print chosen_word
-    new_key = None
+        new_key = current_key[1] + chosen_word
+        current_key = new_key
+        print new_key
     
     return text
 
